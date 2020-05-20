@@ -1,0 +1,89 @@
+<div *ngIf="registrationData" class="registration-detail">
+  <div class="registration-detail--number">
+    <div>{{ registrationData.plate_number }}</div>
+    <div>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Back
+      </button>
+    </div>
+  </div>
+
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Registration
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="registration-detail--info">
+        <div class="wrapper">
+          <div>Expiry Date</div>
+          <div>
+            {{ registrationData.registration.expiry_date | date: "dd MMMM yy" }}
+          </div>
+        </div>
+        <div class="wrapper">
+          <div>Status</div>
+          <div>
+            <registration-status
+              [registration]="registrationData.registration"
+            ></registration-status>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Vehicle Info
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="registration-detail--info">
+        <div class="wrapper">
+          <div>Colour</div>
+          <div>{{ registrationData.vehicle.colour }}</div>
+        </div>
+        <div class="wrapper">
+          <div>Gross Mass</div>
+          <div>{{ registrationData.vehicle.gross_mass }}</div>
+        </div>
+        <div class="wrapper">
+          <div>Make</div>
+          <div>{{ registrationData.vehicle.make }}</div>
+        </div>
+        <div class="wrapper">
+          <div>Model</div>
+          <div>{{ registrationData.vehicle.model }}</div>
+        </div>
+        <div class="wrapper">
+          <div>Tare Weight</div>
+          <div>{{ registrationData.vehicle.tare_weight }}</div>
+        </div>
+        <div class="wrapper">
+          <div>Type</div>
+          <div>{{ registrationData.vehicle.type }}</div>
+        </div>
+        <div class="wrapper">
+          <div>VIN</div>
+          <div>{{ registrationData.vehicle.vin | maskVin }}</div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Insurer
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        class="registration-detail--info"
+        *ngFor="let key of Object.keys(registrationData.insurer)"
+      >
+        <div class="wrapper">
+          <div>{{ key }}</div>
+          <div>{{ registrationData.insurer[key] }}</div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

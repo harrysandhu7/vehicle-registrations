@@ -1,0 +1,10 @@
+<div id="registrations-list">
+  <mat-selection-list [multiple]="false">
+    <mat-list-option
+      (click)="goToDetailsPage(registration)"
+      *ngFor="let registration of registrations$ | async"
+    >
+      <registration-card [registration]="registration"></registration-card>
+    </mat-list-option>
+  </mat-selection-list>
+</div>

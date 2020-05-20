@@ -1,0 +1,21 @@
+#registrations-list {
+  ::ng-deep {
+    .mat-list-base {
+      padding: 0;
+
+      .mat-list-option {
+        height: fit-content;
+        padding: 15px;
+        border-bottom: 3px solid #f2f2f2;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .mat-list-item-content.mat-list-item-content-reverse {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.registration-card {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    margin: 5px 0;
+  }
+
+  &--number {
+    font-size: 2rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+  }
+  &--detail {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  &--expiry {
+    font-size: 1rem;
+  }
+}

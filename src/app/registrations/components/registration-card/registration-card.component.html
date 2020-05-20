@@ -1,0 +1,15 @@
+<div class="registration-card">
+  <div class="registration-card--number">{{ registration.plate_number }}</div>
+  <div class="registration-card--detail">
+    {{ registration.vehicle.make }}
+    {{ registration.vehicle.colour }}
+    {{ registration.vehicle.model }}
+    {{ registration.vehicle.type }}
+  </div>
+  <div class="registration-card--expiry">
+    Expiry: {{ registration.registration.expiry_date | date: "dd MMMM yy" }} -
+    <registration-status
+      [registration]="registration.registration"
+    ></registration-status>
+  </div>
+</div>
